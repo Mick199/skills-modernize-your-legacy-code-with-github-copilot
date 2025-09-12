@@ -1,19 +1,25 @@
 const { expect } = require('chai');
 const mock = require('mock-fs');
-const fs = require('fs');
+const path = require('path');
 
-// Import the functions from index.js
-let handleTotal, handleCredit, handleDebit, readBalance, writeBalance, initBalance;
+// Import the functions from index.js before mock-fs is active
+const {
+  handleTotal,
+  handleCredit,
+  handleDebit,
+  readBalance,
+  writeBalance,
+  initBalance
+} = require('./index.js');
+
+const BALANCE_FILE = path.resolve('./balance.json');
 
 describe('Accounting App', function () {
   beforeEach(() => {
-    // Mock the file system for each test
+    // Mock the file system for each test using absolute path
     mock({
-      './balance.json': JSON.stringify({ balance: 1000.00 })
+      [BALANCE_FILE]: JSON.stringify({ balance: 1000.00 })
     });
-    // Re-require index.js to get fresh functions and avoid state leakage
-    delete require.cache[require.resolve('./index.js')];
-    ({ handleTotal, handleCredit, handleDebit, readBalance, writeBalance, initBalance } = require('./index.js'));
   });
 
   afterEach(() => {
