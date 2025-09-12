@@ -99,6 +99,19 @@ async function handleDebit(rl) {
   }
 }
 
-// Entry point
-initBalance();
-mainMenu();
+// Export functions for testing
+module.exports = {
+  handleTotal,
+  handleCredit,
+  handleDebit,
+  readBalance,
+  writeBalance,
+  initBalance,
+  mainMenu
+};
+
+// Only run CLI if called directly
+if (require.main === module) {
+  initBalance();
+  mainMenu();
+}
