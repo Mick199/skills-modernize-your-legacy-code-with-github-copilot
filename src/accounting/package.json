@@ -1,0 +1,16 @@
+{
+  "name": "accounting",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["accounting", "cobol", "legacy", "modernization"],
+  "author": "",
+  "license": "ISC",
+  "description": "Node.js Account Management System converted from COBOL legacy application",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
