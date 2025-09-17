@@ -36,9 +36,12 @@
 ehthumbs.db
 Thumbs.db
 
-# Cobol binary files #
+# COBOL binary files #
 ######################
 accountsystem
+account_system
+src/cobol/account_system
+*.out
 
 # Node.js node_modules #
 ########################
